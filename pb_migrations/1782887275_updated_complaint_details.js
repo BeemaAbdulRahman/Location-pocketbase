@@ -1,0 +1,26 @@
+/// <reference path="../pb_data/types.d.ts" />
+migrate((app) => {
+  const collection = app.findCollectionByNameOrId("pbc_2594370506")
+
+  // add field
+  collection.fields.addAt(6, new Field({
+    "help": "",
+    "hidden": false,
+    "id": "json3622966325",
+    "maxSize": 0,
+    "name": "meta",
+    "presentable": false,
+    "required": false,
+    "system": false,
+    "type": "json"
+  }))
+
+  return app.save(collection)
+}, (app) => {
+  const collection = app.findCollectionByNameOrId("pbc_2594370506")
+
+  // remove field
+  collection.fields.removeById("json3622966325")
+
+  return app.save(collection)
+})
