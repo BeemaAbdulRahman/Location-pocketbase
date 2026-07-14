@@ -12,6 +12,9 @@ RUN wget -O /tmp/pocketbase.zip \
     && rm /tmp/pocketbase.zip \
     && chmod +x /pb/pocketbase
 
+COPY pb_hooks /pb/pb_hooks
+COPY pb_migrations /pb/pb_migrations
+
 EXPOSE 8090
 
 CMD ["./pocketbase", "serve", "--http=0.0.0.0:8090"]
